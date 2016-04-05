@@ -52,17 +52,19 @@ To connect to a server other than the official one, you need to modify the clien
 Since this requires you to have a web server that serves the files, Melia comes with a simple web server of its own, so you don't have to worry about that. When starting it, you will see the information you have to use. This will change, based on the web server's configuration.
 
 ```text
-[Info] - ServerListURL: http://*:8080/toscdn/patch/serverlist.xml
-[Info] - StaticConfigURL: http://*:8080/toscdn/patch/
+[Info] - ServerListURL: http://*:8080/toslive/patch/serverlist.xml
+[Info] - StaticConfigURL: http://*:8080/toslive/patch/
 ```
 
 Copy the URLs to your client.xml, replace the asterisk (*) with the your IP, and you should be good to go. For example, if you're using Melia locally, your GameOption tag might look like the following:
 
 ```xml
-<GameOption ServerListURL="http://127.0.0.1:8080/toscdn/patch/serverlist.xml" StaticConfigURL="http://127.0.0.1:8080/toscdn/patch/" [...]
+<GameOption ServerListURL="http://127.0.0.1:8080/toslive/patch/serverlist.xml" StaticConfigURL="http://127.0.0.1:8080/toslive/patch/" [...]
 ```
 
 If you want to connect to a Melia server over the internet, you have to use your public IP, the client needs to be able to download the file.
+
+Note: To start the client directly from the TOS directory, you have to start it with the parameter `-SERVICE`.
 
 ## Creating an account
 
