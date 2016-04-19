@@ -28,4 +28,18 @@ Like with conf files, the server reads the files in system first and jumps over 
 
 ##Scripts
 
-TODO
+The script lists work similar to conf files, in that the lists in system include lists from user. The server then loads all script files specified in the lists, with the user folder being treated with a higher priority. This means if you put a script in the same exact location in the user folder as an official script in the system folder, the server will load the user file, instead of the one in system. This way you can easily override entire scripts.
+
+```text
+user\scripts\npc\city\c_Klaipe.lua > system\scripts\npc\city\c_Klaipe.lua
+```
+
+Further, you can override functions specified in system scripts by simply specifying a function with the same name in a script in your user folder. That script has to be loaded at a later time though, otherwise the official function would override the custom one.
+
+```lua
+-- Accessory Merchant Ronesa
+function npc_accessorymerchantronesa()
+	-- No more accessories!
+	msg("Sorry, I'm all out of goods.")
+end
+```
