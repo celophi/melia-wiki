@@ -47,22 +47,15 @@ Once you have finished compiling, simply open start_servers.bat and your server 
 
 ## Connecting to a Melia Server
 
-To connect to a server other than the official one, you need to modify the client's "client.xml" file. Change the "ServerListURL" and "StaticConfigURL" attributes to the ones for your server, so the client downloads *your* server information instead of the officials.
+To connect to a server other than the official one, you need to modify the client's "client.xml" file, specifically, the values "ServerListURL" and "StaticConfigURL". In the past you would only need to change those to point to the respective files on your Melia web server, but due to changes in TOS the static config now requires an SSL connection, which our web server currently doesn't support. For now, you need to run your own HTTPS server, at least for the static config file. 
 
-Since this requires you to have a web server that serves the files, Melia comes with a simple web server of its own, so you don't have to worry about that. When starting it, you will see the information you have to use. This will change, based on the web server's configuration.
-
-```text
-[Info] - ServerListURL: http://*:8080/toslive/patch/serverlist.xml
-[Info] - StaticConfigURL: http://*:8080/toslive/patch/
-```
-
-Copy the URLs to your client.xml, replace the asterisk (*) with the your IP, and you should be good to go. For example, if you're using Melia locally, your GameOption tag might look like the following:
+Change "ServerListURL" to point to the server list XML, and "StaticConfigURL" to the folder that contains the static_Config.txt. For example, if you're running Melia's web server on port 8080, and another server for the static config on the default SSL port, your settings might look like this:
 
 ```xml
-<GameOption ServerListURL="http://127.0.0.1:8080/toslive/patch/serverlist.xml" StaticConfigURL="http://127.0.0.1:8080/toslive/patch/" [...]
+<GameOption ServerListURL="http://127.0.0.1:8080/toslive/patch/serverlist.cs" StaticConfigURL="http://127.0.0.1/toslive/patch/"
 ```
 
-If you want to connect to a Melia server over the internet, you have to use your public IP, the client needs to be able to download the file.
+Once you have modified your client.xml, you can start the client.
 
 Note: To start the client directly from the TOS directory, you have to start it with the parameter `-SERVICE`.
 
