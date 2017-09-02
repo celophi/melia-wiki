@@ -12,6 +12,7 @@
 **Tree of Savior**
 
 - [[Network protocol]]
+- [[Client parameters]]
 
 **Misc**
 
