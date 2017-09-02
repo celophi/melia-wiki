@@ -1,4 +1,4 @@
-This is a list of known command line arguments that the client accepts.
+This is a list of known command line parameters that the client accepts.
 
 <table>
 <tr>
