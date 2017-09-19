@@ -47,12 +47,12 @@ Once you have finished compiling, simply open start_servers.bat and your server 
 
 ## Connecting to a Melia Server
 
-To connect to a server other than the official one, you need to modify the client's "client.xml" file, specifically, the values "ServerListURL" and "StaticConfigURL". In the past you would only need to change those to point to the respective files on your Melia web server, but due to changes in TOS the static config now requires an SSL connection, which our web server currently doesn't support. For now, you need to run your own HTTPS server, at least for the static config file. 
+To connect to a server other than the official one, you need to modify the client's "client.xml" file, specifically, the values "ServerListURL" and "StaticConfigURL". Make a backup of the original file if you want to be able to still connect to officials.
 
-Change "ServerListURL" to point to the server list XML, and "StaticConfigURL" to the folder that contains the static_Config.txt. For example, if you're running Melia's web server on port 8080, and another server for the static config on the default SSL port, your settings might look like this:
+Change "ServerListURL" to point to the server list XML, and "StaticConfigURL" to the folder that contains the static_Config.txt. For example, if you're running Melia's web server on port 8080 your settings might look like this:
 
 ```xml
-<GameOption ServerListURL="http://127.0.0.1:8080/toslive/patch/serverlist.cs" StaticConfigURL="http://127.0.0.1/toslive/patch/"
+<GameOption ServerListURL="http://127.0.0.1:8080/toslive/patch/serverlist.cs" StaticConfigURL="http://127.0.0.1:8080/toslive/patch/"
 ```
 
 Once you have modified your client.xml, you can start the client.
